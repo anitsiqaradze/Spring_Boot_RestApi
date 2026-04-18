@@ -36,4 +36,14 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
        ) 
        Page<Employee> searchEmployeesViaNative(@Param("searchText") String searchText, Pageable pageable);
        
+
+       // spring builts query from method name 
+       /*
+        SELECT ... FROM employees 
+        WHERE phone = ? OR email = ?
+
+        */
+       <T> T findByPhoneOrEmail(String phone, String email, Class<T> type);
+
+
 }

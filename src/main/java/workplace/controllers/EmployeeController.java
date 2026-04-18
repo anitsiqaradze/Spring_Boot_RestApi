@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import workplace.dto.AddEmployee;
+import workplace.dto.EmployeeContactInfo;
 import workplace.dto.RequestData;
 import workplace.dto.SearchEmployee;
 import workplace.entities.Employee;
@@ -46,6 +47,11 @@ public class EmployeeController {
    @PostMapping("/search")
     public Page<Employee> search(@RequestBody RequestData<SearchEmployee> rd) {
         return employeeService.search(rd.getData(), rd.getPaging());
+    }
+
+    @PostMapping("/searchContactInfo")
+    public EmployeeContactInfo searchContactInfo(@RequestBody RequestData<SearchEmployee> rd){
+        return employeeService.getEmployeeContacts(rd.getData());
     }
 
 

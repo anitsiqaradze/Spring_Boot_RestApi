@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import jakarta.transaction.Transactional;
 import workplace.dto.AddEmployee;
+import workplace.dto.EmployeeContactInfo;
 import workplace.dto.Paging;
 import workplace.dto.RequestData;
 import workplace.dto.SearchEmployee;
@@ -76,5 +77,8 @@ public class EmployeeService {
     }
 
 
+    public EmployeeContactInfo getEmployeeContacts(SearchEmployee searchEmployee){
+        return employeeRepository.findByPhoneOrEmail(searchEmployee.getPhone(), searchEmployee.getEmail(), EmployeeContactInfo.class);
+    }
 
 }
