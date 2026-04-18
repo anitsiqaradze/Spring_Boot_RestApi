@@ -2,11 +2,13 @@ package workplace.controllers;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
+
+import workplace.dto.AddEmployee;
+import workplace.dto.RequestData;
+import workplace.dto.SearchEmployee;
 import workplace.entities.Employee;
 import workplace.services.EmployeeService;
 
@@ -29,7 +31,23 @@ public class EmployeeController {
     public Employee getById(@PathVariable Long id) throws Exception {
         return employeeService.getById(id);
     }
-  
+
+    @PostMapping("/add")
+    public Employee add(@RequestBody Employee addEmployee) throws Exception {
+        return employeeService.saveEmployee(addEmployee, null);
+    }
+
+    @PutMapping("/{id}")
+    public Employee edit(@PathVariable Long id, @RequestBody Employee addEmployee) throws Exception{
+        return employeeService.saveEmployee(addEmployee, id);
+
+    }
+
+   @PostMapping("/search")
+    public Page<Employee> search(@RequestBody RequestData<SearchEmployee> rd) {
+        return employeeService.search(rd.getData(), rd.getPaging());
+    }
+
 
     
     
