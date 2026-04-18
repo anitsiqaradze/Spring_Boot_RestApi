@@ -45,24 +45,46 @@ public class EmployeeService {
         return employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("EMPLOYEE_NOT_FOUND"));
     }
 
-    @Transactional
-    public Employee saveEmployee(Employee data, Long id) throws Exception {
-        //GeneralUtil.checkRequiredProperties(data, Arrays.asList("firstName", "lastName", "phone", "salary"));
-        //Employee employee = new Employee();
+    // @Transactional
+    // public Employee saveEmployee(Employee data, Long id) throws Exception {
+    //     //GeneralUtil.checkRequiredProperties(data, Arrays.asList("firstName", "lastName", "phone", "salary"));
+    //     //Employee employee = new Employee();
 
         
-        if (id != null) {
-            data = getById(id);
+    //     if (id != null) {
+    //         data = getById(id);
+    //     }
+
+    //    // GeneralUtil.getCopyOf(data, employee);
+    //     data.setHireDate(new Date());
+
+    //     Department department = this.departmentService.getById(1L);
+
+    //     data.setDepartment(department);
+
+    //     return employeeRepository.save(data);
+    // }
+    @Transactional
+    public Employee saveEmployee(AddEmployee data, Long id) throws Exception {
+        GeneralUtil.checkRequiredProperties(data,  Arrays.asList("firstName", "lastName", "phone", "salary"));
+
+        Employee employee = new Employee();
+
+        if(id != null){
+            employee = getById(id);
         }
 
-       // GeneralUtil.getCopyOf(data, employee);
-        data.setHireDate(new Date());
+        GeneralUtil.getCopyOf(data, employee);
+        employee.setHireDate(new Date());
 
-        Department department = this.departmentService.getById(1L);
+        Department department = this.departmentService.getById(data.getDepartmentId());
+        employee.setDepartment(department);
+        System.out.println(employee);
 
-        data.setDepartment(department);
+        return employeeRepository.save(employee);
 
-        return employeeRepository.save(data);
+
+
     }
 
     public List<Employee> getByDepartment(Long departmentId){

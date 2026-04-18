@@ -34,12 +34,12 @@ public class EmployeeController {
     }
 
     @PostMapping("/add")
-    public Employee add(@RequestBody Employee addEmployee) throws Exception {
+    public Employee add(@RequestBody AddEmployee addEmployee) throws Exception {
         return employeeService.saveEmployee(addEmployee, null);
     }
 
     @PutMapping("/{id}")
-    public Employee edit(@PathVariable Long id, @RequestBody Employee addEmployee) throws Exception{
+    public Employee edit(@PathVariable Long id, @RequestBody AddEmployee addEmployee) throws Exception{
         return employeeService.saveEmployee(addEmployee, id);
 
     }

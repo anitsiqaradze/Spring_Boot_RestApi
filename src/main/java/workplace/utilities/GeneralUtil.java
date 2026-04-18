@@ -100,7 +100,7 @@ public class GeneralUtil {
 
         Class returnType = null;
 
-        if(sourceReturnType.equals(destinationObject)){
+        if(sourceReturnType.equals(destinationReturnType)){
             if(sourceValue != null){
                 destinationObject.getClass().getMethod(getSetterName(propertyName), sourceReturnType)
                 .invoke(destinationObject, sourceValue);

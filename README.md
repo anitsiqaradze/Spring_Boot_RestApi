@@ -86,3 +86,25 @@ FROM employees e
 JOIN departments d ON e.department_id = d.department_id;
 
 PROJECTION = selecting only part of your entity instead of whole object.
+
+Add the following enhancements to the Spring project based on the sample HR database:
+
+Create new entities: Location, Country, and Region.
+
+Update the Department entity:
+
+Add a relationship to Location.
+
+Add a manager property (linked to the appropriate employee entity).
+
+Implement an API endpoint to retrieve a list of all departments with the following fields:
+
+Department name
+Manager full name (concatenation of firstName and lastName)
+Country
+City
+Street address
+
+The API should support filtering by:
+Country
+City
