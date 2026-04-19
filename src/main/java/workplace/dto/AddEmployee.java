@@ -15,7 +15,7 @@ public class AddEmployee {
     private String phone;
     private Double salary;
     private Long departmentId;
-
+    private Long managerId;
 
    
 }

@@ -79,6 +79,9 @@ public class EmployeeService {
 
         Department department = this.departmentService.getById(data.getDepartmentId());
         employee.setDepartment(department);
+
+        Employee manager = getById(data.getManagerId());
+        employee.setManager(manager);
         System.out.println(employee);
 
         return employeeRepository.save(employee);

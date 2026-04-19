@@ -2,7 +2,10 @@ package workplace.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +24,15 @@ public class Department {
     private Long id;
     @Column(name = "department_name")
     private String name;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+     private Location location;
+    
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Employee manager;
 
 
 }

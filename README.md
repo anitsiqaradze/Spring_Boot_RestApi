@@ -87,24 +87,48 @@ JOIN departments d ON e.department_id = d.department_id;
 
 PROJECTION = selecting only part of your entity instead of whole object.
 
-Add the following enhancements to the Spring project based on the sample HR database:
+            Add the following enhancements to the Spring project based on the sample HR database:
 
-Create new entities: Location, Country, and Region.
+                     Create new entities: Location, Country, and Region.
 
-Update the Department entity:
+                     Update the Department entity:
 
-Add a relationship to Location.
+                     Add a relationship to Location.
 
-Add a manager property (linked to the appropriate employee entity).
+            Add a manager property (linked to the appropriate employee entity).
 
-Implement an API endpoint to retrieve a list of all departments with the following fields:
+            Implement an API endpoint to retrieve a list of all departments with the following fields:
 
-Department name
-Manager full name (concatenation of firstName and lastName)
-Country
-City
-Street address
+            Department name
+            Manager full name (concatenation of firstName and lastName)
+            Country
+            City
+            Street address
 
-The API should support filtering by:
-Country
-City
+Database structure:
+regions
+countries (region_id FK)
+locations (country_id FK)
+departments (location_id FK)
+employees (department_id FK)
+“manager property” means a self-join relationship where an employee references another employee as their manager — not a boolean flag
+
+TYPES OF SQL JOINS https://www.youtube.com/watch?v=G3lJAxg1cy8
+
+join is clause used to combine rows from two or more table, based on related colum - primary key.
+
+lets say we have transactions table and customers table, only card payment customer is stored in table.
+
+- inner join - join together any matching rows based on some link
+  select \* from transactions inner join customers
+  on tranactions.customer_id = customers.customer_id;
+
+- left join retireves all rows from left column and relevant rows from right
+  select \* from transactions left join customers
+  on transactions.customer_id = custo
+
+Let's create a table GFGemployees with employee_id, employee_name and manager_id. Each employee is linked to their manager using manager_id. Our goal is to extract employees along with their respective managers’ names.
+
+SELECT e.employee_name AS employee, m.employee_name AS manager
+FROM GFGemployees AS e
+JOIN GFGemployees AS m ON e.manager_id = m.employee_id;
