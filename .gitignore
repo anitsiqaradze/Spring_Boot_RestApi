@@ -31,5 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
-src/main/java/workplace/dto/DepartmentInfo.java
-src/main/java/workplace/dto/SearchDepartment.java
+src/main/java/workplace/utilities/GeneralUtil.java

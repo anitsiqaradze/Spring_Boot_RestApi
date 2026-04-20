@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import workplace.dto.DepartmentInfo;
 import workplace.entities.Department;
 import workplace.entities.Employee;
 import workplace.services.DepartmentService;
@@ -31,6 +32,12 @@ public class DepartmentController {
     public List<Department> getAll() {
         return departmentService.getAll();
     }
+
+    @GetMapping("/summary")
+    public List<DepartmentInfo> getDepartmentSummaries(){
+        return departmentService.getDepartmentSummaries();
+    }
+
 
     @GetMapping("/{id}")
     public Department getById(@PathVariable Long id) throws Exception {

@@ -132,3 +132,14 @@ Let's create a table GFGemployees with employee_id, employee_name and manager_id
 SELECT e.employee_name AS employee, m.employee_name AS manager
 FROM GFGemployees AS e
 JOIN GFGemployees AS m ON e.manager_id = m.employee_id;
+
+Problem 1 — JPQL JOIN syntax is wrong
+In JPQL you don't write JOIN Employee e ON ... like SQL. You follow the relationship property on the entity:
+
+-- ❌ Wrong (SQL style)
+JOIN Employee e ON d.manager = e.id
+
+-- ✅ Correct (JPQL style)
+JOIN d.manager e
+
+JPA already knows how to join because of your @ManyToOne + @JoinColumn — you just navigate the property

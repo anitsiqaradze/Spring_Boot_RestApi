@@ -74,24 +74,6 @@ public class GeneralUtil {
 
     }
 
-
-
-    // private static <T1, T2> void copyValue(T1 sourceObject, T2 destinationObject, String propertyName) throws Exception {
-    //     Object sourceValue = sourceObject.getClass().getMethod(getGetterName(propertyName)).invoke(sourceObject);
-    //     Class sourceReturnType = sourceObject.getClass().getMethod(getGetterName(propertyName)).getReturnType();
-    //     Class destinationReturnType = destinationObject.getClass().getMethod(propertyName).getReturnType();
-
-    //     Class returnType = null;
-
-    //     if(sourceReturnType.equals(destinationObject)){
-    //         if(sourceValue != null){
-    //             destinationObject.getClass().getMethod(getSetterName(propertyName), sourceReturnType)
-    //             .invoke(destinationObject, sourceValue);
-    //         }
-    //     }
-    // }
-
-
     
     private static <T1, T2> void copyValue(T1 sourceObject, T2 destinationObject, String propertyName) throws Exception {
         Object sourceValue = sourceObject.getClass().getMethod(getGetterName(propertyName)).invoke(sourceObject);
