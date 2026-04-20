@@ -8,8 +8,7 @@ import lombok.AllArgsConstructor;
 public class DepartmentInfo {
    
     private String departmentName;
-    private String firstName;  
-    private String lastName;
+    private String managerFullName;  
     private String country;
     private String city;
     private String streetAddress;

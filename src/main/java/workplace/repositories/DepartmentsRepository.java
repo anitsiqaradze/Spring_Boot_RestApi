@@ -12,7 +12,7 @@ public interface DepartmentsRepository extends JpaRepository<Department, Long> {
     
 
      @Query(
-        value="SELECT d.department_name, e.first_name, e.last_name, l.street_address, c.country_name, r.region_name "+
+        value="SELECT d.department_name,"+ "CONCAT(e.first_name,\' \',e.last_name) AS manager_full_name , l.street_address, c.country_name, r.region_name "+
                         "FROM departments d " + 
                         "INNER JOIN employees e ON d.manager_id = e.employee_id " + 
                         "INNER JOIN locations l ON d.location_id = l.location_id " + 
