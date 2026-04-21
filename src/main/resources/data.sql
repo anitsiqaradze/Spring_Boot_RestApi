@@ -41,12 +41,12 @@ INSERT INTO departments (department_id, department_name, location_id, manager_id
 INSERT INTO employees (first_name, last_name, email, phone_number, salary, hire_date, department_id, manager_id) VALUES
 ('Alice',   'Johnson',  'alice.johnson@example.com',  '555-0101', 12000.00, '2018-03-01', 8, NULL),   -- id=1, CEO
 ('Bob',     'Smith',    'bob.smith@example.com',      '555-0102', 10000.00, '2019-06-15', 2, 1),      -- id=2, Eng Manager
-('Carol',   'White',    'carol.white@example.com',    '555-0103', 9500.00,  '2019-09-20', 1, 1),      -- id=3, HR Manager
-('Daniel',  'Brown',    'daniel.brown@example.com',   '555-0104', 9800.00,  '2020-01-10', 3, 1),      -- id=4, Finance Manager
-('Eva',     'Martinez', 'eva.martinez@example.com',   '555-0105', 9200.00,  '2020-04-05', 4, 1),      -- id=5, Marketing Manager
-('Frank',   'Lee',      'frank.lee@example.com',      '555-0106', 9000.00,  '2020-07-22', 5, 1),      -- id=6, Sales Manager
-('Grace',   'Kim',      'grace.kim@example.com',      '555-0107', 8800.00,  '2021-02-14', 6, 1),      -- id=7, Ops Manager
-('Henry',   'Taylor',   'henry.taylor@example.com',   '555-0108', 8500.00,  '2021-05-30', 7, 1),      -- id=8, Legal Manager
+('Carol',   'White',    'carol.white@example.com',    '555-0103', 9500.00,  '2019-09-20', 1, NULL),      -- id=3, HR Manager
+('Daniel',  'Brown',    'daniel.brown@example.com',   '555-0104', 9800.00,  '2020-01-10', 3, NULL),      -- id=4, Finance Manager
+('Eva',     'Martinez', 'eva.martinez@example.com',   '555-0105', 9200.00,  '2020-04-05', 4, NULL),      -- id=5, Marketing Manager
+('Frank',   'Lee',      'frank.lee@example.com',      '555-0106', 9000.00,  '2020-07-22', 5, NULL),      -- id=6, Sales Manager
+('Grace',   'Kim',      'grace.kim@example.com',      '555-0107', 8800.00,  '2021-02-14', 6, NULL),      -- id=7, Ops Manager
+('Henry',   'Taylor',   'henry.taylor@example.com',   '555-0108', 8500.00,  '2021-05-30', 7, NULL),      -- id=8, Legal Manager
 ('Isla',    'Anderson', 'isla.anderson@example.com',  '555-0109', 7000.00,  '2022-01-17', 2, 2),      -- engineer
 ('James',   'Wilson',   'james.wilson@example.com',   '555-0110', 6800.00,  '2022-03-09', 2, 2),      -- engineer
 ('Karen',   'Thomas',   'karen.thomas@example.com',   '555-0111', 6500.00,  '2022-06-21', 1, 3),      -- HR staff
