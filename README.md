@@ -2,7 +2,7 @@
 
 ### Spring Boot REST API backed by an HR sample database with departments, employees, locations, and regions.
 
-## Features
+---
 
 ### Employee Service Endpoints
 
@@ -18,6 +18,8 @@
 
     - PUT /employees/{id}\*\* — edit employee record
 
+---
+
 ### Employee Service Endpoints
 
     - GET /departments/all — returns departments details
@@ -28,9 +30,11 @@
 
     - GET {id}/employees/search — fetch all employees of id specified department
 
+---
+
 ### DATABASE SCHEMA
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](./Untitled%20Diagram.png)
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](./Database_Schema_Diagram.png)
 
 ### Tech Stack
 
