@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import workplace.dto.AddEmployee;
 import workplace.dto.EmployeeContactInfo;
+import workplace.dto.EmployeeInfo;
 import workplace.dto.RequestData;
 import workplace.dto.SearchEmployee;
 import workplace.entities.Employee;
@@ -24,7 +25,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/all")
-    public List<Employee> getAll() {
+    public List<EmployeeInfo> getAll() {
         return employeeService.getAll();
     }
 

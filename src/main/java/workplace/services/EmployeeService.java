@@ -1,6 +1,7 @@
 package workplace.services;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import jakarta.transaction.Transactional;
 import workplace.dto.AddEmployee;
 import workplace.dto.EmployeeContactInfo;
+import workplace.dto.EmployeeInfo;
 import workplace.dto.Paging;
 import workplace.dto.RequestData;
 import workplace.dto.SearchEmployee;
@@ -37,33 +39,15 @@ public class EmployeeService {
     }
 
 
-    public List<Employee> getAll() {
-        return employeeRepository.findAll();
+    public List<EmployeeInfo> getAll() {
+        return employeeRepository.findAllWithDetails();
     }
 
     public Employee getById(Long id) throws ResourceNotFoundException {
         return employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("EMPLOYEE_NOT_FOUND"));
     }
 
-    // @Transactional
-    // public Employee saveEmployee(Employee data, Long id) throws Exception {
-    //     //GeneralUtil.checkRequiredProperties(data, Arrays.asList("firstName", "lastName", "phone", "salary"));
-    //     //Employee employee = new Employee();
 
-        
-    //     if (id != null) {
-    //         data = getById(id);
-    //     }
-
-    //    // GeneralUtil.getCopyOf(data, employee);
-    //     data.setHireDate(new Date());
-
-    //     Department department = this.departmentService.getById(1L);
-
-    //     data.setDepartment(department);
-
-    //     return employeeRepository.save(data);
-    // }
     @Transactional
     public Employee saveEmployee(AddEmployee data, Long id) throws Exception {
         GeneralUtil.checkRequiredProperties(data,  Arrays.asList("firstName", "lastName", "phone", "salary"));
@@ -82,7 +66,7 @@ public class EmployeeService {
 
         Employee manager = getById(data.getManagerId());
         employee.setManager(manager);
-        System.out.println(employee);
+    
 
         return employeeRepository.save(employee);
 

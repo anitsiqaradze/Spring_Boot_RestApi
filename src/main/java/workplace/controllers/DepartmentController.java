@@ -2,12 +2,9 @@ package workplace.controllers;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import workplace.dto.DepartmentInfo;
+import workplace.dto.DepartmentLocationInfo;
 import workplace.entities.Department;
 import workplace.entities.Employee;
 import workplace.services.DepartmentService;
@@ -34,7 +31,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/summary")
-    public List<DepartmentInfo> getDepartmentSummaries(){
+    public List<DepartmentLocationInfo> getDepartmentSummaries(){
         return departmentService.getDepartmentSummaries();
     }
 
@@ -50,6 +47,18 @@ public class DepartmentController {
     public List<Employee> getEmployees(@PathVariable Long id) {
         return employeeService.getByDepartment(id);
     }
-    
 
+    // example url /departments/filter?city=London
+    @GetMapping("/filter")
+    public List<Department> filter(
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String country) {
+
+        if (city != null) {
+            return departmentService.filterByCity(city);
+        } else if (country != null) {
+            return departmentService.filterByCountry(country);
+        }
+        return List.of();
+    }
 }

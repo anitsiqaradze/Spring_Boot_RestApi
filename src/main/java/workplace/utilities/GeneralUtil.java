@@ -117,5 +117,8 @@ public class GeneralUtil {
         return destination;
 
     }
+
+    /*
+    method that checks for non primitive data */
     
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
-import workplace.dto.DepartmentInfo;
+import workplace.dto.DepartmentLocationInfo;
 import workplace.entities.Department;
 import workplace.repositories.DepartmentsRepository;
 
@@ -27,10 +27,17 @@ public class DepartmentService {
         return  departmentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("DEPARTMENT_NOT_FOUND"));
     }
 
-    public List<DepartmentInfo> getDepartmentSummaries(){
+    public List<DepartmentLocationInfo> getDepartmentSummaries(){
         return departmentRepository.findDepartmentSummaries();
     }
 
+    public List<Department> filterByCity(String city) {
+        return departmentRepository.findByCity(city);
+    }
+
+    public List<Department> filterByCountry(String countryName) {
+        return departmentRepository.findByCountryName(countryName);
+    }
     
     
 }

@@ -16,6 +16,5 @@ public class AddEmployee {
     private Double salary;
     private Long departmentId;
     private Long managerId;
-
-   
+ 
 }

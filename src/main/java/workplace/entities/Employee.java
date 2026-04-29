@@ -50,7 +50,7 @@ public class Employee {
     @Column(name = "hire_date")
     private Date hireDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "department_id")
     @JsonIgnoreProperties({"manager", "department"})
     private Department department;
